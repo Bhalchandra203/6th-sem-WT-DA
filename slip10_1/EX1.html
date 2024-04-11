@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body>
-    <!-- Q. 1) Create a HTML fileto insert text before and after a Paragraph using jQuery. [Hint : Use before( )
-and after( )]
- -->
- <p id="paragraph"> This is paragraph </p>
- <script>
-     $(document).ready(()=>{
-        $("#paragraph").before("Before");
-        $("#paragraph").after("after");
-     })
- </script>
-</body>
+<html>
+     <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head> 
+    <body>
+        <p id="para">Hello JavaScript.</p> <br>
+        <button id="b1">Insert Before</button>
+        <button id="b2">Insert After</button>
+        
+        <script>
+            $(document).ready(function() {
+               $('#b1').click(function() {
+                    $('#para').before("<p>Hi .</p>");
+               });
+               $('#b2').click(function() {
+                    $('#para').after("<p>Bye .</p>");
+               });
+            });
+        </script>
+    </body>
 </html>
