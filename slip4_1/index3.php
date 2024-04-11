@@ -1,22 +1,19 @@
-<?php 
-session_start();
+<?php
+    session_start();
+
+    $eno = $_SESSION['eno'];
+    $ename = $_SESSION['ename'];
+    $address = $_SESSION['address'];
+    $basic = $_SESSION['basic'];
+    $da = $_SESSION['da'];
+    $hra = $_SESSION['hra'];
+    
+    echo "<h1>Emp info</h1> <br>";
+    echo "<h3>Eno     : $eno</h3>";
+    echo "<h3>Ename   : $ename</h3>";
+    echo "<h3>Address : $address</h3>";
+    echo "<h3>Bassic  : $basic</h3>";
+    echo "<h3>Da      : $da</h3>";
+    echo "<h3>HRA     : $hra</h3>";
+    
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee details</title>
-</head>
-<body>
-    <h3>Employee Details </h3>
-    <h3>Employee No: <?php echo $_SESSION['eno']?></h3>
-    <h3>Employee name: <?php echo $_SESSION['ename']?></h3>
-    <h3>Employee address: <?php echo $_SESSION['address']?></h3>
-    <h3>Employee basic: <?php echo $_SESSION['basic']?></h3>
-    <h3>Employee DA: <?php echo $_SESSION['da']?></h3>
-    <h3>Employee HRA: <?php echo $_SESSION['hra']?></h3>
-    <h3>Total :<?php echo $_SESSION['total']?></h3>
-    <a href="index1.php">Go to Page-1</a>
-</body>
-</html>
