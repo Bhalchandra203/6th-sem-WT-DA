@@ -1,15 +1,20 @@
-<?php 
+<?php
 
-$font_style = $_POST['font-style'];
-$font_size = $_POST['font-size'];
-$font_color = $_POST['font-color'];
+    $style = $_POST['style'];
+    $size = $_POST['size'];
+    $color = $_POST['color'];
+    $bgColor = $_POST['bgColor'];
 
-echo "Selected Setting :<br>";
-echo "Font style : $font_style <br> Font size : $font_size <br> Font color : $font_color";
-
-
-setcookie("font-style" , $font_style);
-setcookie("font-size" , $font_size);
-setcookie("font-color" , $font_color);
-
-echo "<br> <a href='result.php'>Go to Page </a>";
+    setcookie("style", $style);
+    setcookie("size", $size);
+    setcookie("color", $color);
+    setcookie("bgColor", $bgColor);
+    
+    
+    echo "Font Style: $style <br>";
+    echo "Font size: $size <br>";
+    echo "Font color: $color <br>";
+    echo "Background color: $bgColor <br>";
+    
+    echo "<a href='S2Q1.php'>Apply Settings</a>"
+?>
