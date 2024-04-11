@@ -3,64 +3,53 @@ password entered is correct then display second form with “Welcome message” 
 message. [Use Session] -->
 
 <?php
-
 session_start();
-$correct_username = "Bhalchandra";
-$correct_pass = "123";
 
-if(isset($_POST['username'])){
- $username = $_POST['username'];
- $pass = $_POST['bhalchandra'];
+$correctUser = "Bhalchandra203";
+$correctPass = "bhalchandra";
 
+$user = "";
+$pass = "";
+$errorMsg = "";
 
- if(strcmp($username , $correct_username)==0  && strcmp($pass , $correct_pass)==0){
+if(isset($_POST['submit'])) {
+    $user = $_POST['user'];
+    $pass = $_POST['pass'];
 
-    $_SESSION['count'] = 3;
-    echo "<h3>Welcome , $username </h3>";
-   
- }
- else{
-    if(isset($_SESSION['count'])){
-
-        $_SESSION['count']--;
-
-        if($_SESSION['count']<1){
-            echo "Total number of attempts finished";
-            
+    if($user == $correctUser && $pass == $correctPass) {
+        $_SESSION["attempts"] = 0;
+        $_SESSION["user"] = $user;
+        header("Location: welcome.php");
+        exit();
+    } else {
+        if(isset($_SESSION['attempts'])) {
+            $_SESSION['attempts']++;
+        } else {
+            $_SESSION['attempts'] = 1;
         }
-        else{ 
-            echo "Total chance remaining :".$_SESSION['count'];
+        
+        if($_SESSION['attempts'] >= 3) {
+            $errorMsg = "Max login attempts reached. Please try again later";
+        } else {
+            $attemptsLeft = 3 - $_SESSION['attempts'];
+            $errorMsg = "Invalid username or password. Please try again. Attempts left: $attemptsLeft";
         }
     }
-    else{
-        $_SESSION['count'] = 3;
-    }
-   
- }
-
 }
 ?>
 
+
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
 </head>
-
 <body>
-    <form action="#" method="POST">
-        <label>Enter Username :</label>
-        <input type="text" name="username">
-        <br>
-        <label>Enter Password :</label>
-        <input type="password" name="password">
-        <br>
-        <button type="submit" >Submit</button>
-        <button type="reset">Reset</button>
-        <a href="index.php" type="button">Retry</a>
+    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+        User name: <input type="text" name="user"><br>
+        Password: <input type="password" name="pass"><br>
+        <input type="submit" name="submit" value="Login">
+        <div style="color:red"><?php echo htmlspecialchars($errorMsg); ?></div>
     </form>
 </body>
 </html>
