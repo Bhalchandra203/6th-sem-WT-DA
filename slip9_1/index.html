@@ -1,62 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .error {
-            color: red;
-        }
-    </style>
-</head>
-<body>
-    <form id="membershipForm">
-        <label>Enter Username :</label>
-        <input type="text" id="username" placeholder="Enter username">
-        <br><small>Username must be at least 3 characters long,<br> consisting of letters and numbers</small>
-        <span id="usernameError" class="error"></span>
-        <br>
-        <br>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form onsubmit="return validateForm()">
+            Username: <input type="text" id="username"><br>
+            Password: <input type="text" id="password"><br>
+            <input type="submit" value="submit">
+        </form>
 
-        <label>Enter Passeord :</label>
-        <input type="password" id="password" placeholder="Enter password" autocomplete>
-        <br><small>Password must be at least 3 characters long,<br> one lowercase and one uppercase letter</small>
-        <span id="passwordError" class="error"></span><br>
-        <br>
-        <input type="submit" s value="submit">
-    </form>
+        <script>
+            function validateForm() {
+                let username = document.getElementById('username').value.trim();
+                let password = document.getElementById('password').value.trim();
 
-    <script>
-       document.getElementById("membershipForm").addEventListener("submit" , (e)=>{
-        e.preventDefault();
-        validate();
-       });
-        function validate(){
-        var  username = document.getElementById("username").value;
-        var  password = document.getElementById("password").value;
-           
-        var usernameRegex = /^[a-zA-Z0-9]{5,}$/;         // Username must be at least 5 characters long, consisting of letters and numbers
-        var passRegex = /^(?=.*[a-z])(?=.*[A-Z]).{3,}$/; // Password must be at least 3 characters long, contain at least one digit, one lowercase and one uppercase letter
+                if (username === '' || password === '') {
+                    alert('Please enter both username and password.');
+                    return false;  
+                }
 
-        if(!usernameRegex.test(username)){
-            document.getElementById("usernameError").innerText = "Enter valid username";
-        }
-        else{
-            document.getElementById("usernameError").innerText = "";
-        }
+                const usernameRegex = /^[a-zA-Z0-9_]+$/;
+                if (!usernameRegex.test(username)) {
+                    alert('Username can only contain letters, numbers, and underscores.');
+                    return false;
+                }
+                
+                if (password.length < 8) {
+                    alert('Password must be at least 8 characters long.');
+                    return false;
+                }
+                
+                const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+                if (!passwordRegex.test(password)) {
+                    alert('Weak password.');
+                    return false;
+                }
+                
+                alert("You are member now.")
+                return true;
+            }
 
-        if(!passRegex.test(password))
-        {
-            document.getElementById("passwordError").innerText = "Enter valid password";
-        }
-        else{
-            document.getElementById("passwordError").innerText = "";
-
-        } 
-      
-        }
-    </script>
-    
-</body>
+        </script>
+    </body>
 </html>
