@@ -1,36 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-   
-    <label>Enter how many terms wants to generate :</label><br>
-    <input type="number" id="num">
-    <button type="submit" onclick="getFibonacci()">generate</button>
-    <p id="fib"></p>
-    <script>
-        // 0 1 1 2 3 5 ..
-        function getFibonacci()
-        {
-            var f1 = 0;
-            var f2 = 1;
-            var ans = f1 + "," + f2 + ",";
-            var num = document.getElementById("num").value;
-
-            for(let i = 0; i<Number(num)-2; i++){
-                f3 = f1 + f2;
-                f1 = f2;
-                f2  = f3;
-                ans += f3 + ","
-            }
-         
-        document.getElementById("fib").innerText ="Fibonacci Series : "+  ans;
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Fibonacci Series</h1>
+        <div id="f1"></div>
+        <button onclick="fibonacci()">Print</button>
+        
+        <script>
+            var div = document.getElementById('f1');
             
-        }
-
-    </script>
-</body>
+            function fibonacci() {
+                let n1 = 0;
+                let n2 = 1;
+                
+                div.innerHTML = n1 + "<br>" + n2 + "<br>";
+                for(let i=2; i<10; i++) {
+                    let n3 = n1 + n2;
+                    n1 = n2;
+                    n2 = n3;
+                    div.innerHTML += n3 + "<br>";
+                }
+            }
+        </script>
+    </body>
 </html>
