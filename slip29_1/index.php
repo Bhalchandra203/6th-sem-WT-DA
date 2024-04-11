@@ -1,61 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>title</title>
 </head>
 <body>
-    
-    <form acction="#" method="POST">
-
-        <label>Enter number </label>
-        <input type="number" name="num">
-        <br>
-        <input type="radio" name="c" value="a">Select for Fibonacci series<br>
-        <input type="radio" name="c" value="b">To find sum of the digits of that number<br>
-        <button type="submit" >Submit</button>
-        <button type="reset">Reset</button>
-
+    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="get">
+        Enter number: <input type="text" name="n"><br>
+        <input type="radio" name="ch" value="1">Fibonacci Series terms<br>
+        <input type="radio" name="ch" value="2">Calculate Sum of digits<br>
+        <input type="submit" value="submit" name="submit">
     </form>
+
+    <?php
+    if (isset($_GET['submit'])) {
+        $n = $_GET['n'];
+        $ch = $_GET['ch'];
+
+        switch ($ch) {
+            case 1:
+                echo "<h1>Fibonacci Series:</h1>";
+                $n1 = 0;
+                $n2 = 1; 
+                echo "$n1 <br> $n2 <br>";
+                for ($i = 0; $i < $n - 2; $i++) { 
+                    $n3 = $n1 + $n2;
+                    $n1 = $n2;
+                    $n2 = $n3;
+                    echo "$n3 <br>";
+                }
+                break;
+            case 2:
+                $sum = 0;
+                while ($n > 0) {
+                    $digit = $n % 10;
+                    $sum += $digit;
+                    $n = (int)($n / 10);
+                }
+                echo "<h1>Sum of digits = $sum</h1>";
+                
+        }
+    }
+    ?>
 </body>
 </html>
-
-<?php 
-
-    if(isset($_POST['c']) && isset($_POST['num']))
-    {
-        $ch = $_POST['c'];
-        $num = $_POST['num'];
-
-        if($ch =='a'){
-            $f1  = 0;
-            $f2  = 1;
-            echo "fibonacci series up to $ch :".$f1.",".$f2;
-
-            $i = 0;
-            $num -=2;
-            while($i<$num){
-                $f3 = $f1 + $f2;
-                $f1 = $f2;
-                $f2 = $f3;
-                $i++;
-                echo ","."$f3";
-            }
-
-        }
-        else{
-            $sum = 0;
-            while($num>0)
-            {
-                $rem = $num%10;
-                $sum += $rem;
-                $num/=10;
-            }
-            echo "Sum of the all the digits :".$sum;
-        }
-
-
-    }
-
-?>
