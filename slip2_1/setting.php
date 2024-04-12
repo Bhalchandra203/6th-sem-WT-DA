@@ -16,5 +16,5 @@
     echo "Font color: $color <br>";
     echo "Background color: $bgColor <br>";
     
-    echo "<a href='S2Q1.php'>Apply Settings</a>"
+    echo "<a href='result.php'>Apply Settings</a>"
 ?>
