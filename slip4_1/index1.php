@@ -1,7 +1,8 @@
 <?php
     session_start();
     
-    if(isset($_POST['submit'])) {
+    if(isset($_POST['submit'])) 
+    {
         $eno = $_POST['eno'];
         $ename = $_POST['ename'];
         $address = $_POST['address'];
