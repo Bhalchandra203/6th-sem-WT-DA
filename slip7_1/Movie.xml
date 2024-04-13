@@ -1,33 +1,33 @@
-<?xml version="1.0"?>
-<MovieInfo>
+<?xml version="1.0" encoding="UTF-8"?>
+<Movies>
     <Movie>
         <MovieNo>1</MovieNo>
-        <MovieTitle>The Shawshank Redemption</MovieTitle>
-        <ActorName>Tim Robbins, Morgan Freeman</ActorName>
-        <ReleaseYear>1994</ReleaseYear>
+        <MovieTitle>Movie 1</MovieTitle>
+        <ActorName>Actor A</ActorName>
+        <ReleaseYear>2020</ReleaseYear>
     </Movie>
     <Movie>
         <MovieNo>2</MovieNo>
-        <MovieTitle>The Godfather</MovieTitle>
-        <ActorName>Marlon Brando, Al Pacino</ActorName>
-        <ReleaseYear>1972</ReleaseYear>
+        <MovieTitle>Movie 2</MovieTitle>
+        <ActorName>Actor B</ActorName>
+        <ReleaseYear>2018</ReleaseYear>
     </Movie>
     <Movie>
         <MovieNo>3</MovieNo>
-        <MovieTitle>The Dark Knight</MovieTitle>
-        <ActorName>Christian Bale, Heath Ledger</ActorName>
-        <ReleaseYear>2008</ReleaseYear>
+        <MovieTitle>Movie 3</MovieTitle>
+        <ActorName>Actor C</ActorName>
+        <ReleaseYear>2000</ReleaseYear>
     </Movie>
     <Movie>
         <MovieNo>4</MovieNo>
-        <MovieTitle>Pulp Fiction</MovieTitle>
-        <ActorName>John Travolta, Uma Thurman</ActorName>
-        <ReleaseYear>1994</ReleaseYear>
+        <MovieTitle>Movie 4</MovieTitle>
+        <ActorName>Actor D</ActorName>
+        <ReleaseYear>1999</ReleaseYear>
     </Movie>
     <Movie>
         <MovieNo>5</MovieNo>
-        <MovieTitle>Forrest Gump</MovieTitle>
-        <ActorName>Tom Hanks, Robin Wright</ActorName>
-        <ReleaseYear>1994</ReleaseYear>
+        <MovieTitle>Movie 5</MovieTitle>
+        <ActorName>Actor E</ActorName>
+        <ReleaseYear>2023</ReleaseYear>
     </Movie>
-</MovieInfo>
+</Movies>
